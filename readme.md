@@ -35,6 +35,8 @@ The error response is same a the success response but with a 'status' = 'ERROR' 
 
 #### example
 ```go
+import github.com/thearyanahmed/goresponder
+
 func (handler *handler) createNewUser(w http.ResponseWriter,r *http.Request) {
 
     req := request.Request{}
@@ -48,10 +50,10 @@ func (handler *handler) createNewUser(w http.ResponseWriter,r *http.Request) {
     user, errs := createNewUser(validated["first_name"],validated["last_name"],validated["email"])
 
     if len(errs) > 0 {
-        res.SendError(w,"Unprocessable entity.",errs,422)
+        goresponder.SendError(w,"Unprocessable entity.",errs,422)
         return
     }
 
-    res.Send(w,userCreatedSuccessfully,user,200)
+    goresponder.Send(w,userCreatedSuccessfully,user,200)
 }
 ```
