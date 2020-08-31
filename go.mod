@@ -1,3 +1,3 @@
-module github.com/thearyanahmed/go-responder
+module github.com/thearyanahmed/goresponder
 
 go 1.14
